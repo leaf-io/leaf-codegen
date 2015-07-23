@@ -16,13 +16,7 @@ import io.vertx.core.json.JsonObject;
 public class {{classname}} {{#parent}}extends {{{parent}}}{{/parent}} {
 
   private JsonObject jsonObject;
-  {{#vars}}{{#isEnum}}
-  public enum {{datatypeWithEnum}} {
-    {{#allowableValues}}{{#values}} {{.}}, {{/values}}{{/allowableValues}}
-  };
-  private {{{datatypeWithEnum}}} {{name}} = {{{defaultValue}}};{{/isEnum}}{{^isEnum}}
-  private {{{datatype}}} {{name}} = {{{defaultValue}}};{{/isEnum}}
-  {{/vars}}
+
   {{#vars}}
   /**{{#description}}
    * {{{description}}}{{/description}}{{#minimum}}
@@ -32,10 +26,10 @@ public class {{classname}} {{#parent}}extends {{{parent}}}{{/parent}} {
   @ApiModelProperty({{#required}}required = {{required}}, {{/required}}value = "{{{description}}}")
   @JsonProperty("{{baseName}}")
   public {{{datatypeWithEnum}}} {{getter}}() {
-    return {{name}};
+    return jsonObject.get{{datatypeWithEnum}}("{{name}}");
   }
   public void {{setter}}({{{datatypeWithEnum}}} {{name}}) {
-    this.{{name}} = jsonObject.get{{datatypeWithEnum}}("{{name}}");
+    jsonObject.put("{{name}}", {{name}});
   }
 
   {{/vars}}
