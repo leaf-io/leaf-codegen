@@ -56,7 +56,7 @@ public class JavaLeafGenerator extends DefaultCodegen implements CodegenConfig {
      */
     modelTemplateFiles.put(
       "model.mustache", // the template to use
-      ".sample");       // the extension for each file to write
+      ".java");       // the extension for each file to write
 
     /**
      * Api classes.  You can write classes for each Api file with the apiTemplateFiles map.
