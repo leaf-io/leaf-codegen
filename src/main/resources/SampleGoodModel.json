@@ -1,0 +1,23 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "io.leaf",
+    "x-component" : {
+      "groupId" : "io.leaf",
+      "artifactId" : "SampleGoodModel"
+    }
+  },
+  "definitions" : {
+    "SampleGoodModel" : {
+      "type" : "object",
+      "required" : [ "id" ],
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        }
+      }
+    }
+  }
+}
