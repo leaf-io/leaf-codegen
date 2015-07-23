@@ -29,7 +29,7 @@ public class ModelSchemaGenerator<T> implements SchemaGenerator<T> {
         Map<String, String> component = new HashMap<>();
         component.put("artifactId", model.getSimpleName());
         component.put("groupId",def.info().title());
-        info.setVendorExtension("x-component", component);
+        info.setVendorExtension("x-module", component);
         swagger.info(info);
 
         ModelConverters.getInstance()
