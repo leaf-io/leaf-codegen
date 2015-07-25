@@ -11,6 +11,8 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ServiceLoader;
 
 import static java.util.ServiceLoader.load;
@@ -20,6 +22,8 @@ import static java.util.ServiceLoader.load;
  */
 public class JavaLeafGeneratorTest extends TestCase {
 
+    private static final String SAMPLE_MODEL_NAME = "SampleGoodModel.json";
+
     private static final Logger LOGGER = LoggerFactory.getLogger(JavaLeafGeneratorTest.class);
 
     @Test(expected = Exception.class)
@@ -28,11 +32,11 @@ public class JavaLeafGeneratorTest extends TestCase {
 
         CodegenConfig config = forName("JavaLeaf");
         if(config != null) {
-            String spec = ".\\src\\main\\resources\\SampleGoodModel.json";
+            Path schemaPath = Paths.get(ClassLoader.getSystemResource(SAMPLE_MODEL_NAME).toURI());
 
             input.setConfig(config);
 
-            Swagger swagger = new SwaggerParser().read(spec, input.getAuthorizationValues(), true);
+            Swagger swagger = new SwaggerParser().read(schemaPath.toAbsolutePath().toString(), input.getAuthorizationValues(), true);
             new DefaultGenerator().opts(input.opts(new ClientOpts()).swagger(swagger)).generate();
         }
     }
