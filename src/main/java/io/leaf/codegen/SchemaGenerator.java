@@ -5,6 +5,6 @@ package io.leaf.codegen;
  */
 public interface SchemaGenerator<T> {
 
-    String generateSchema(Class<T> model) throws Exception;
+    String generateSchema(Class<T> model);
 
 }

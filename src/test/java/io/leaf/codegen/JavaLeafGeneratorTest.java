@@ -24,7 +24,6 @@ public class JavaLeafGeneratorTest extends TestCase {
         ClientOptInput input = new ClientOptInput();
 
         CodegenConfig config = forName("JavaLeaf");
-        //config.setOutputDir(new File("output").getAbsolutePath());
 
         String spec=".\\src\\main\\resources\\SampleGoodModel.json";
 

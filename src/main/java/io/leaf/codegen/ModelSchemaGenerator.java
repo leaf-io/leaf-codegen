@@ -6,7 +6,6 @@ import io.swagger.models.Info;
 import io.swagger.models.Swagger;
 import io.swagger.util.Json;
 
-import java.lang.annotation.Annotation;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,7 +17,7 @@ import java.util.Map;
  */
 public class ModelSchemaGenerator<T> implements SchemaGenerator<T> {
     @Override
-    public String generateSchema(Class<T> model) throws Exception {
+    public String generateSchema(Class<T> model) {
 
         Swagger swagger = new Swagger();
         Info info = new Info();
@@ -36,28 +35,8 @@ public class ModelSchemaGenerator<T> implements SchemaGenerator<T> {
                 .readAll(model)
                 .entrySet()
                 .stream()
-                .forEach(entry -> {
-                    swagger.model(entry.getKey(), entry.getValue());
-                });
+                .forEach(entry -> swagger.model(entry.getKey(), entry.getValue()));
 
         return Json.pretty(swagger);
-
-        /*
-        return ModelConverters.getInstance()
-                .readAll(model)
-                .entrySet()
-                .stream()
-                .collect(
-                        Collectors.toMap(
-                                Map.Entry::getKey,
-                                e -> {
-                                    try {
-                                        return new String(Json.pretty(e.getValue()));
-                                    }catch(Exception ex){
-
-                                    }
-                                    return null;
-                                })
-                );*/
     }
 }
