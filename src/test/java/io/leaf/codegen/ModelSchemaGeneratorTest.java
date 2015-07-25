@@ -18,7 +18,7 @@ import java.util.Date;
 
 public class ModelSchemaGeneratorTest extends TestCase {
 
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private static final Logger LOGGER = LoggerFactory.getLogger(ModelSchemaGeneratorTest.class);
 
     @SwaggerDefinition(info = @Info(version = "1.0.0", title = "io.leaf"))
     public static class SampleGoodModel {
@@ -53,8 +53,7 @@ public class ModelSchemaGeneratorTest extends TestCase {
     public void testModelSchemaGenerationOutput() throws Exception {
         ModelSchemaGenerator<SampleGoodModel> generator = new ModelSchemaGenerator<>();
         String schema = generator.generateSchema(SampleGoodModel.class);
-        logger.info(schema);
-
+        LOGGER.info(schema);
         assertNotNull(schema);
     }
 

@@ -12,36 +12,6 @@ public class JavaLeafGenerator extends DefaultCodegen implements CodegenConfig {
   protected String sourceFolder = "src";
   protected String apiVersion = "1.0.0";
 
-  /**
-   * Configures the type of generator.
-   * 
-   * @return  the CodegenType for this generator
-   * @see     CodegenType
-   */
-  public CodegenType getTag() {
-    return CodegenType.CLIENT;
-  }
-
-  /**
-   * Configures a friendly name for the generator.  This will be used by the generator
-   * to select the library with the -l flag.
-   * 
-   * @return the friendly name for the generator
-   */
-  public String getName() {
-    return "JavaLeaf";
-  }
-
-  /**
-   * Returns human-friendly help for the generator.  Provide the consumer with help
-   * tips, parameters here
-   * 
-   * @return A string value for the help message
-   */
-  public String getHelp() {
-    return "Generates a JavaLeaf client library.";
-  }
-
   public JavaLeafGenerator() {
     super();
 
@@ -119,6 +89,39 @@ public class JavaLeafGenerator extends DefaultCodegen implements CodegenConfig {
     );
   }
 
+    /**
+     * Configures the type of generator.
+     *
+     * @return  the CodegenType for this generator
+     * @see     CodegenType
+     */
+    @Override
+    public CodegenType getTag() {
+        return CodegenType.CLIENT;
+    }
+
+    /**
+     * Configures a friendly name for the generator.  This will be used by the generator
+     * to select the library with the -l flag.
+     *
+     * @return the friendly name for the generator
+     */
+    @Override
+    public String getName() {
+        return "JavaLeaf";
+    }
+
+    /**
+     * Returns human-friendly help for the generator.  Provide the consumer with help
+     * tips, parameters here
+     *
+     * @return A string value for the help message
+     */
+    @Override
+    public String getHelp() {
+        return "Generates a JavaLeaf client library.";
+    }
+
   /**
    * Escapes a reserved word as defined in the `reservedWords` array. Handle escaping
    * those terms here.  This logic is only called if a variable matches the reseved words
@@ -134,6 +137,7 @@ public class JavaLeafGenerator extends DefaultCodegen implements CodegenConfig {
    * Location to write model files.  You can use the modelPackage() as defined when the class is
    * instantiated
    */
+  @Override
   public String modelFileFolder() {
     return outputFolder + "/" + sourceFolder + "/" + modelPackage().replace('.', File.separatorChar);
   }

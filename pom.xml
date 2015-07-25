@@ -66,6 +66,11 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>2.6</version>
+            </plugin>
         </plugins>
 
     </build>
@@ -87,5 +92,9 @@
 
     <properties>
         <project.version>0.0.1-SNAPSHOT</project.version>
+        <sonar.jdbc.url>jdbc:postgresql://localhost:6432/sonar</sonar.jdbc.url>
+        <sonar.host.url>http://localhost:9000</sonar.host.url>
+        <sonar.jdbc.username>sonar</sonar.jdbc.username>
+        <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
     </properties>
 </project>
