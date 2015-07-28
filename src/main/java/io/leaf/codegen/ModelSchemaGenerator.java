@@ -39,4 +39,8 @@ public class ModelSchemaGenerator<T> implements SchemaGenerator<T> {
 
         return Json.pretty(swagger);
     }
+
+    public void test(int a, int b, int c, int d, int e, int f, int h, int j, int l, int r) {
+
+    }
 }

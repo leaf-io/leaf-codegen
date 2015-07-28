@@ -54,6 +54,8 @@ public class ModelSchemaGeneratorTest extends TestCase {
         ModelSchemaGenerator<SampleGoodModel> generator = new ModelSchemaGenerator<>();
         String schema = generator.generateSchema(SampleGoodModel.class);
         LOGGER.info(schema);
+        //  FIXME teszt
+        System.out.println("testz hiba");
         assertNotNull(schema);
     }
 
