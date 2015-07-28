@@ -2,6 +2,6 @@ language: java
 jdk:
   - oraclejdk8
 script:
-  - sudo mvn jacoco:prepare-agent
-  - sudo mvn jacoco:report
-  - sudo mvn sonar:sonar -Dsonar.jdbc.password={{sonar.jdbc.password}} -Dsonar.jdbc.url={{sonar.jdbc.url}} -Dsonar.host.url={{sonar.host.url}} -Dsonar.jdbc.username={{sonar.jdbc.username}}
+  - mvn jacoco:prepare-agent
+  - mvn jacoco:report
+  - mvn sonar:sonar -Dsonar.jdbc.password={{sonar.jdbc.password}} -Dsonar.jdbc.url={{sonar.jdbc.url}} -Dsonar.host.url={{sonar.host.url}} -Dsonar.jdbc.username={{sonar.jdbc.username}}
