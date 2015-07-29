@@ -4,4 +4,4 @@ jdk:
 after_success:
   - mvn jacoco:prepare-agent
   - mvn jacoco:report
-  - mvn -X sonar:sonar -Dsonar.jdbc.password={{sonar.jdbc.password}} -Dsonar.jdbc.url={{sonar.jdbc.url}} -Dsonar.host.url={{sonarhosturl}} -Dsonar.jdbc.username={{sonar.jdbc.username}}
+  - mvn -X sonar:sonar -Dsonar.jdbc.password=$sonarjdbcpassword -Dsonar.jdbc.url=$sonarjdbcurl -Dsonar.host.url=$sonarhosturl -Dsonar.jdbc.username=$sonarjdbcusername
