@@ -1,7 +1,7 @@
 language: java
 jdk:
   - oraclejdk8
-after_success:
+script:
   - mvn jacoco:prepare-agent
   - mvn jacoco:report
   - mvn -X sonar:sonar -Dsonar.jdbc.password=$sonarjdbcpassword -Dsonar.jdbc.url=$sonarjdbcurl -Dsonar.host.url=$sonarhosturl -Dsonar.jdbc.username=$sonarjdbcusername
